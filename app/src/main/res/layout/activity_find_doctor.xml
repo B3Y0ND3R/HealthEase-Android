@@ -44,7 +44,7 @@
         android:rowCount="3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardFamilyPhysician"
+            android:id="@+id/cardFDFamilyPhysician"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -81,7 +81,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardFDietician"
+            android:id="@+id/cardFDDietician"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
