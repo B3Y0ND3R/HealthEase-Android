@@ -50,7 +50,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                it.putExtra("title", "Dietician");
+                it.putExtra("title", "Dentist");
                 startActivity(it);
             }
         });
@@ -60,7 +60,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                it.putExtra("title", "Dietician");
+                it.putExtra("title", "Surgeon");
                 startActivity(it);
             }
         });
@@ -70,7 +70,7 @@ public class FindDoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                it.putExtra("title", "Dietician");
+                it.putExtra("title", "Cardiologist");
                 startActivity(it);
             }
         });
