@@ -17,32 +17,20 @@ public class LabTestActivity extends AppCompatActivity {
 
 
     private String[][] packages = {
-            {"Package 1: Full Body Checkup", "", "", "₹999+"},
-            {"Package 2: Blood Glucose Fasting", "", "", "₹299+"},
-            {"Package 3: COVID-19 Antibody - IgG", "", "", "₹899+"},
-            {"Package 4: Thyroid Check", "", "", "₹499+"},
-            {"Package 5: Immunity Check", "", "", "₹699+"}
+            {"Package 1: Full Body Checkup", "", "", "999"},
+            {"Package 2: Blood Glucose Fasting", "", "", "299"},
+            {"Package 3: COVID-19 Antibody - IgG", "", "", "899"},
+            {"Package 4: Thyroid Check", "", "", "499"},
+            {"Package 5: Immunity Check", "", "", "699"}
     };
 
     private String[] package_details = {
-            "Blood Glucose Fasting\n" +
-                    "Complete Hemogram\n" +
-                    "HbA1c\n" +
-                    "Iron Studies\n" +
-                    "Kidney Function Test\n" +
-                    "LDH Lactate Dehydrogenase, Serum\n" +
-                    "Lipid Profile\n" +
-                    "Liver Function Test",
+            "details about package 1",
+            "details about package 2",
+            "details about package 3",
+            "details about package 4",
+            "details about package 5"
 
-            "Blood Glucose Fasting\n" +
-                    "COVID-19 Antibody - IgG\n" +
-                    "Thyroid Profile-Total (T3, T4 & TSH Ultra-sensitive)\n" +
-                    "Complete Hemogram\n" +
-                    "CRP (C Reactive Protein) Quantitative, Serum\n" +
-                    "Kidney Function Test\n" +
-                    "Vitamin D Total-25 Hydroxy\n" +
-                    "Liver Function Test\n" +
-                    "Lipid Profile"
     };
 
 
@@ -77,7 +65,7 @@ public class LabTestActivity extends AppCompatActivity {
             item.put("line2", packages[i][1]);
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
-            item.put("line5", "Total Cost : "+packages[i][4]+"/-");
+            item.put("line5", "Total Cost : "+packages[i][3]+"/-");
             list.add(item);
         }
 
@@ -91,9 +79,11 @@ public class LabTestActivity extends AppCompatActivity {
                 Intent it = new Intent(LabTestActivity.this, LabTestDetailsActivity.class);
                 it.putExtra("text1", packages[i][0]);
                 it.putExtra("text2", package_details[i]);
-                it.putExtra("text3", packages[i][4]);
+                //it.putExtra("text2", "sdkf");
+               it.putExtra("text3", packages[i][3]);
+               // it.putExtra("text3", "10");
                 startActivity(it);
-;
+                ;
             }
         });
 
