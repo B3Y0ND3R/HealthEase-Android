@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
-    tools:context=".LabTestBookActivity">
+    android:background="@drawable/background"
+    tools:context=".BuyMedicineBookActivity">
+
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +23,7 @@
         app:layout_constraintVertical_bias="0.062" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewBMBPackageName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please Fill Details for Booking"
@@ -36,7 +37,7 @@
         app:layout_constraintVertical_bias="0.065" />
 
     <EditText
-        android:id="@+id/editTextLTBFullName"
+        android:id="@+id/editTextBMBFullName"
         android:layout_width="322dp"
         android:layout_height="40dp"
         android:background="@drawable/input_bg"
@@ -55,12 +56,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBMBPackageName"
         app:layout_constraintVertical_bias="0.183" />
 
 
     <EditText
-        android:id="@+id/editTextLTBAddress"
+        android:id="@+id/editTextBMBAddress"
         android:layout_width="322dp"
         android:layout_height="40dp"
         android:background="@drawable/input_bg"
@@ -79,12 +80,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBMBPackageName"
         app:layout_constraintVertical_bias="0.289" />
 
 
     <EditText
-        android:id="@+id/editTextLTBPincode"
+        android:id="@+id/editTextBMBPincode"
         android:layout_width="322dp"
         android:layout_height="40dp"
         android:layout_marginBottom="320dp"
@@ -104,11 +105,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLTBFullName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBMBFullName"
         app:layout_constraintVertical_bias="0.887" />
 
     <EditText
-        android:id="@+id/editTextLTBContactNumber"
+        android:id="@+id/editTextBMBContactNumber"
         android:layout_width="322dp"
         android:layout_height="40dp"
         android:layout_marginBottom="268dp"
@@ -131,7 +132,7 @@
         app:layout_constraintVertical_bias="0.233" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLTBBook"
+        android:id="@+id/buttonBMBBook"
         android:layout_width="124dp"
         android:layout_height="43dp"
         android:layout_marginBottom="156dp"
