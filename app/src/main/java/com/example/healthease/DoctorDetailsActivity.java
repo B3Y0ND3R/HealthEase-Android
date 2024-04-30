@@ -11,6 +11,9 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.example.healthease.Doctor.DoctorDetails;
+import com.example.healthease.Doctor.DoctorDetailsFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,16 +85,20 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         String title = it.getStringExtra("title");
         tv.setText(title);
 
-        if (title.compareTo("Family Physicians")==0)
-            doctor_details = doctor_details1;
-        else if (title.compareTo("Dietician")==0)
-            doctor_details = doctor_details2;
-        else if (title.compareTo("Dentist")==0)
-            doctor_details = doctor_details3;
-        else if (title.compareTo("Surgeon")==0)
-            doctor_details = doctor_details4;
-        else
-            doctor_details = doctor_details5;
+//        if (title.compareTo("Family Physicians")==0)
+//            doctor_details = doctor_details1;
+//        else if (title.compareTo("Dietician")==0)
+//            doctor_details = doctor_details2;
+//        else if (title.compareTo("Dentist")==0)
+//            doctor_details = doctor_details3;
+//        else if (title.compareTo("Surgeon")==0)
+//            doctor_details = doctor_details4;
+//        else
+//            doctor_details = doctor_details5;
+
+        DoctorDetailsFactory factory = new DoctorDetailsFactory();
+        DoctorDetails doctorDetails = factory.createDoctorDetails(title);
+        String[][] doctor_details = doctorDetails.getDoctorDetails();
 
 
         btn.setOnClickListener(new View.OnClickListener() {
