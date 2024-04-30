@@ -91,7 +91,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "");
 
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+                Database db = Database.getInstance(getApplicationContext(),null);
 
                 try {
                     String docName = ed1.getText().toString();

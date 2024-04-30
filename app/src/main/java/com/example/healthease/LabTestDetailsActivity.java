@@ -51,7 +51,7 @@ public class LabTestDetailsActivity extends AppCompatActivity {
                 String username = sharedPreferences.getString("username", "").toString();
                 String product = tvPackageName.getText().toString();
                 float price = Float.parseFloat(intent.getStringExtra("text3"));
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+                Database db = Database.getInstance(getApplicationContext(),null);
                 if(db.checkCart(username,product)==1)
                 {
                     Toast.makeText(LabTestDetailsActivity.this, "Product Already Added", Toast.LENGTH_SHORT).show();

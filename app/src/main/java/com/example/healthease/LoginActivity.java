@@ -34,7 +34,7 @@ TextView tv;
            //     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
-                Database db =new Database(getApplicationContext(),"healthease",null,1);
+                Database db = Database.getInstance(getApplicationContext(),null);
                 if (username.length() == 0 || password.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
                 }
