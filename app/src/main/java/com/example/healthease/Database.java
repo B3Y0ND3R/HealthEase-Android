@@ -14,6 +14,24 @@ public class Database extends SQLiteOpenHelper {
     public String ans = new String();
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+//    public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+//        super(context, name, factory, version);
+    }
+
+    private static Database instance;
+
+    private static final String DATABASE_NAME = "healthcare";
+    private static final int DATABASE_VERSION = 1;
+
+    private Database(@Nullable Context context,@Nullable SQLiteDatabase.CursorFactory factory) {
+        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    }
+
+    public static synchronized Database getInstance(Context context, SQLiteDatabase.CursorFactory factory) {
+        if (instance == null) {
+            instance = new Database(context.getApplicationContext(), factory);
+        }
+        return instance;
     }
 
     @Override
