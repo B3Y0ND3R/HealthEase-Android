@@ -88,34 +88,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         btnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-                String username = sharedPreferences.getString("username", "");
 
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
-
-                try {
-                    String docName = ed1.getText().toString();
-                    String address = ed2.getText().toString();
-                    String contact = ed3.getText().toString();
-                    String date = dateButton.getText().toString();
-                    String time = timeButton.getText().toString();
-                    String priceString = ed4.getText().toString();
-
-                    float price = Float.parseFloat(fees);
-
-                    db.addAppointment(username, docName, address, contact, date, time, price, "appoint");
-
-                //    db.removeCart(username, "lab");
-
-                    Toast.makeText(BookAppointmentActivity.this, "Your appointment was successfully booked!", Toast.LENGTH_SHORT).show();
-
-                    Intent homeIntent = new Intent(BookAppointmentActivity.this, HomeActivity.class);
-                    startActivity(homeIntent);
-                } catch (NumberFormatException e) {
-                    Toast.makeText(BookAppointmentActivity.this, "Invalid input for price", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(BookAppointmentActivity.this, "An error occurred: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

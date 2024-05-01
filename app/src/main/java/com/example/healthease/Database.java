@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class Database extends SQLiteOpenHelper {
+    public String ans = new String();
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -157,7 +158,7 @@ public class Database extends SQLiteOpenHelper {
         cv.put("contactno", contact);
         cv.put("date", date);
         cv.put("time", time);
-        cv.put("amount", price);
+        cv.put("amount", String.valueOf(price));
         cv.put("otype", otype);
 
         SQLiteDatabase db = getWritableDatabase();
@@ -166,21 +167,9 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList getappointment(String username){
-        ArrayList<String> arr =new ArrayList<>();
-        SQLiteDatabase db=getReadableDatabase();
-        String str[]=new String[1];
-        str[0]=username;
-        Cursor c=db.rawQuery("select * from appointment where username=?",str);
-        if(c.moveToFirst()){
-            do {
-                arr.add(c.getString(1)+"$"+c.getString(2)+"$"+c.getString(3)+"$"+c.getString(4)+"$"+c.getString(5)+"$"+c.getString(6)+"$"+c.getString(7)+"$");
-            }while(c.moveToNext());
 
-        }
-        db.close();
-        return arr;
 
-    }
+
+
 
 }
