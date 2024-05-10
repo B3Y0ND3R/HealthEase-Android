@@ -30,6 +30,7 @@ public class HealthArticleDetailsActivity extends AppCompatActivity {
         if ( bundle != null) {
             int resId = bundle.getInt("text2");
             img.setImageResource(resId);
+
         }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
