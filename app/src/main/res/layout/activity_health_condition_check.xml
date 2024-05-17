@@ -53,9 +53,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/home"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/bmi"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -93,9 +93,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/language"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/bmr"
                     />
                 <TextView
                     android:layout_width="wrap_content"
