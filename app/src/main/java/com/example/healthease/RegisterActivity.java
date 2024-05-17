@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "8 characters", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Use 1 alphabet, 1 special character and at least 8 character. ", Toast.LENGTH_SHORT).show();
                         }
 
                     }
