@@ -30,11 +30,13 @@ public class HealthArticleDetailsActivity extends AppCompatActivity {
         if ( bundle != null) {
             int resId = bundle.getInt("text2");
             img.setImageResource(resId);
+
         }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Back");
                 startActivity(new Intent(HealthArticleDetailsActivity.this, HealthArticleActivity.class));
             }
         });
