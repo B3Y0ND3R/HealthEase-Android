@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
@@ -25,11 +26,13 @@ public class Database extends SQLiteOpenHelper {
 
     private Database(@Nullable Context context,@Nullable SQLiteDatabase.CursorFactory factory) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+
     }
 
     public static synchronized Database getInstance(Context context, SQLiteDatabase.CursorFactory factory) {
         if (instance == null) {
             instance = new Database(context.getApplicationContext(), factory);
+            instance.getWritableDatabase();
         }
         return instance;
     }
@@ -47,6 +50,9 @@ public class Database extends SQLiteOpenHelper {
 
         String qry4 = "create table appointment(username text, fullname text, address text, contactno text, date text, time text, amount float, otype text)";
         sqLiteDatabase.execSQL(qry4);
+
+        String qry5 = "create table totalDepartmentWiseAppointment(name text, total int)";
+        sqLiteDatabase.execSQL(qry5);
     }
 
     @Override
@@ -184,6 +190,94 @@ public class Database extends SQLiteOpenHelper {
         db.close();
 
     }
+
+    public int checkAppointmentExists(String username, String fullname, String address, String contact, String date, String time)
+    {
+        int result = 0;
+        String str[] = new String[3];
+        str[0] = username ;
+        str[1] = fullname;
+        str[2] = date;
+      //  str[2] = address;
+      //  str[3] = contact;
+      //  str[4] = date;
+      //  str[5] = time;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("select * from orderplace where username = ? and fullname = ? and date = ?", str);
+      //  String qry3 = "create table orderplace(username text, fullname text, address text, contactno text, pincode int, date text, time text, amount float, otype text)";
+
+        if(c.moveToFirst())
+        {
+            result=1;
+        }
+        db.close();
+        return result;
+
+    }
+
+//    public void updateTotalAppointment(String name, Integer total) {
+//        ContentValues cv = new ContentValues();
+//        cv.put("name", name);
+//        cv.put("total", total);
+//        SQLiteDatabase db = getWritableDatabase();
+//        db.insert("totalDepartmentWiseAppointment",  null, cv);
+//        db.close();
+//    }
+
+    public void updateTotalAppointment(String name, Integer total) {
+
+        SQLiteDatabase db=getWritableDatabase();
+        String str[]=new String[1];
+        str[0]=name;
+        Cursor c=db.rawQuery("select * from totalDepartmentWiseAppointment where name=?",str);
+        if(c.getCount()==0)
+        {
+            ContentValues cv = new ContentValues();
+            cv.put("name", name);
+            cv.put("total", total);
+
+
+            //SQLiteDatabase db = getWritableDatabase();
+            db.insert("totalDepartmentWiseAppointment", null, cv);
+        }
+        else
+        {
+            String strr[]=new String[2];
+            strr[1]=name;
+            strr[0]=String.valueOf(total);
+            db.execSQL("UPDATE totalDepartmentWiseAppointment SET total = ? WHERE name = ?", strr);
+        }
+
+
+
+
+        db.close();
+    }
+
+
+    public String getTotal(String name){
+        SQLiteDatabase db=getReadableDatabase();
+        String str[]=new String[1];
+        str[0]=name;
+        int result;
+        Cursor c=db.rawQuery("select * from totalDepartmentWiseAppointment where name=?",str);
+        if(c.getCount()==0)
+        {
+
+        }
+        if(c.moveToFirst()){
+          result = c.getInt(1);
+        }
+        else
+        {
+            result = 0;
+        }
+        db.close();
+        return String.valueOf(result);
+
+    }
+
+
 
 
 
