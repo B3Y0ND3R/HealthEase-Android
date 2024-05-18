@@ -12,7 +12,8 @@ import com.example.healthease.DoctorDetailsActivity;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DoctorIntentFactoryTest {
+public class
+DoctorIntentFactoryTest {
 
     private AppCompatActivity mockContext;
 
