@@ -17,8 +17,18 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import com.example.healthease.Doctor.TotalAppointmentFactory;
 
+import java.util.Calendar;
+/**
+ * Activity for booking an appointment with a doctor.
+ *
+ * This activity allows users to select a date and time for an appointment,
+ * and then confirm the booking. It displays details such as the doctor's name,
+ * address, contact number, and consultation fees.
+ *
+ * Author: Md. Sakibur Rahman
+ */
 public class BookAppointmentActivity extends AppCompatActivity {
 
     EditText ed1,ed2,ed3,ed4;
@@ -26,6 +36,11 @@ public class BookAppointmentActivity extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     private AppCompatButton dateButton, timeButton, btnbook, btnback;
+    /**
+     * Called when the activity is first created.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down, this contains the most recent data supplied in onSaveInstanceState(Bundle).
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +74,11 @@ public class BookAppointmentActivity extends AppCompatActivity {
         ed3.setText(contact);
         ed4.setText("Cons Fees: " + fees +"/-");
 
-        // Initialize date and time pickers
+
         initDatePicker();
         initTimePicker();
 
-        // Set click listeners for date and time buttons
+
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,11 +100,21 @@ public class BookAppointmentActivity extends AppCompatActivity {
             }
         });
 
+
+
         btnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Database db = new Database(getApplicationContext(), "healthcare", null, 2);
+
+
+                Database db = Database.getInstance(getApplicationContext(), null);
+
+                int a = Integer.parseInt(db.getTotal(title));
+
+                TotalAppointmentFactory.updateAppointmentNumber(title, a+1);
+                db.updateTotalAppointment(title,a+1);
+
                 SharedPreferences sharedPreferences= getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
                 String username = sharedPreferences.getString("username", "").toString();
                 int x = db.checkAppointmentExists(username, title+ " => "+fullName,address,contact,dateButton.getText().toString(), timeButton.getText().toString());
@@ -106,40 +131,13 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 }
 
 
-//                SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-//                String username = sharedPreferences.getString("username", "");
-//
-//                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
-//
-//                try {
-//                    String docName = ed1.getText().toString();
-//                    String address = ed2.getText().toString();
-//                    String contact = ed3.getText().toString();
-//                    String date = dateButton.getText().toString();
-//                    String time = timeButton.getText().toString();
-//                    String priceString = ed4.getText().toString();
-//
-//                    float price = Float.parseFloat(fees);
-//
-//                    db.addAppointment(username, docName, address, contact, date, time, price, "appoint");
-//
-//                    //    db.removeCart(username, "lab");
-//
-//                    Toast.makeText(BookAppointmentActivity.this, "Your appointment was successfully booked!", Toast.LENGTH_SHORT).show();
-//
-//                    Intent homeIntent = new Intent(BookAppointmentActivity.this, HomeActivity.class);
-//                    startActivity(homeIntent);
-//                } catch (NumberFormatException e) {
-//                    Toast.makeText(BookAppointmentActivity.this, "Invalid input for price", Toast.LENGTH_SHORT).show();
-//                } catch (Exception e) {
-//                    Toast.makeText(BookAppointmentActivity.this, "An error occurred: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-
             }
         });
 
     }
-
+    /**
+     * Initializes the DatePickerDialog and sets its minimum date to the next day.
+     */
     private void initDatePicker() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -155,7 +153,9 @@ public class BookAppointmentActivity extends AppCompatActivity {
         }, year, month, day);
         datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis() + 86400000);
     }
-
+    /**
+     * Initializes the TimePickerDialog.
+     */
     private void initTimePicker() {
         Calendar cal = Calendar.getInstance();
         int hrs = cal.get(Calendar.HOUR_OF_DAY);

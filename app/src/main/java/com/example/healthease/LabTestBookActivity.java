@@ -10,7 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/**
+ * The {@code LabTestBookActivity} class allows users to book lab tests by providing their details.
+ * It retrieves the selected lab test details from the intent extras and saves the booking information to the database.
+ * Author: Md. Sakibur Rahman
+ */
 public class LabTestBookActivity extends AppCompatActivity {
 
     EditText edname, edaddress, edcontact, edpincode;

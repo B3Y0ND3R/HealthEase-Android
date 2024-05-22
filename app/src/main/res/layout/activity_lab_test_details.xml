@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/back2"
+    android:id="@+id/labtestdetailslayout"
     tools:context=".LabTestDetailsActivity">
 
 
@@ -43,6 +44,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="76dp"
         android:text="Lab Test and Packages"
+        android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,11 +59,18 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="31dp"
         android:ems="10"
-        android:inputType="text"
+        android:textColor="@color/colorWhite"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        android:gravity="top|start"
         android:text="Name"
+        android:scrollbars="vertical"
+        android:overScrollMode="ifContentScrolls"
+        app:flow_wrapMode="aligned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLDPackageName" />
+
 
     <TextView
         android:id="@+id/textViewLDTotalCost"
