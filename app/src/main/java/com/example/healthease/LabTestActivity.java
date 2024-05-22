@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.example.healthease.LabTest.LabTestPackage;
+import com.example.healthease.LabTest.LabTestPackageFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -50,22 +53,17 @@ public class LabTestActivity extends AppCompatActivity {
         btnBack=findViewById(R.id.buttonLTBack);
         listView= findViewById(R.id.listViewLT);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LabTestActivity.this, HomeActivity.class));
-            }
-        });
+        LabTestPackageFactory factory = LabTestPackageFactory.getInstance();
 
         list = new ArrayList();
-        for(int i=0; i<packages.length;i++)
-        {
-            item=new HashMap<String ,String>();
-            item.put("line1", packages[i][0]);
-            item.put("line2", packages[i][1]);
-            item.put("line3", packages[i][2]);
-            item.put("line4", packages[i][3]);
-            item.put("line5", "Total Cost : "+packages[i][3]+"/-");
+        for (int i = 0; i < 5; i++) {
+            LabTestPackage pkg = factory.createPackage(i + 1);
+            item = new HashMap<String, String>();
+            item.put("line1", pkg.getName());
+            item.put("line2", "");
+            item.put("line3", "");
+            item.put("line4", String.valueOf(pkg.getCost()));
+            item.put("line5", "Total Cost : " + pkg.getCost() + "/-");
             list.add(item);
         }
 
@@ -76,14 +74,12 @@ public class LabTestActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                LabTestPackage pkg = factory.createPackage(i + 1);
                 Intent it = new Intent(LabTestActivity.this, LabTestDetailsActivity.class);
-                it.putExtra("text1", packages[i][0]);
-                it.putExtra("text2", package_details[i]);
-                //it.putExtra("text2", "sdkf");
-               it.putExtra("text3", packages[i][3]);
-               // it.putExtra("text3", "10");
+                it.putExtra("text1", pkg.getName());
+                it.putExtra("text2", pkg.getDetails());
+                it.putExtra("text3", String.valueOf(pkg.getCost()));
                 startActivity(it);
-                ;
             }
         });
 
@@ -91,6 +87,13 @@ public class LabTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LabTestActivity.this, CartLabActivity.class));
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LabTestActivity.this, HomeActivity.class));
             }
         });
 

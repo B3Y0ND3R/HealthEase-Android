@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthease.Doctor.DoctorDetails;
 import com.example.healthease.Doctor.DoctorDetailsFactory;
@@ -107,6 +108,22 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                 startActivity(new Intent(DoctorDetailsActivity.this, FindDoctorActivity.class));
             }
         });
+
+
+        //experiment
+
+        try {
+            Database db = Database.getInstance(getApplicationContext(), null);
+            db.updateTotalAppointment("dietitian", 10);
+            String xs = db.getTotal("dietitian");
+            Toast.makeText(this, xs+"", Toast.LENGTH_SHORT).show();
+            System.out.println("Total "+xs);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
 
         list = new ArrayList<>();
         for(int i=0;i<doctor_details.length;i++) {

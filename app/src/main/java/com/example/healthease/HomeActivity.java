@@ -66,6 +66,22 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.calculate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, HealthConditionCheckActivity.class));
+            }
+        });
+
+
+        findViewById(R.id.cardHealthArticle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(HomeActivity.this, HealthArticleActivity.class));
+            }
+        });
+
 
 
 
