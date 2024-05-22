@@ -15,6 +15,14 @@
         <activity
             android:name=".HealthConditionCheckActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".HealthArticleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".HealthArticleDetailsActivity"
+            android:exported="false" />
 <!--        <activity-->
 <!--            android:name=".ShowAppointment"-->
 <!--            android:exported="false" />-->
