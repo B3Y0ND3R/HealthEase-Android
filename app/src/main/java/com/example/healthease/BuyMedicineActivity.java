@@ -8,22 +8,29 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
+
+import com.example.healthease.BuyMed.BuyMedicineAdapter;
+import com.example.healthease.HomeActivity;
+import com.example.healthease.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * BuyMedicineActivity is an activity that displays a list of medicines available for purchase.
+ * Users can view details of each medicine and add them to their cart.
+ */
 public class BuyMedicineActivity extends AppCompatActivity {
     private String[][] packages={
-        {"Napa Paracetamol","","","","50"},
-        {"HealthVit Chromium Picolinate 200mcg Capsule","","","","305"},
-        {"Vitamin B Complex Capsules","","","","448"},
-        {"Inlife Vitamin E Wheat Germ Oil Capsule","","","","539"},
-        {"Dolo 650 Capsule","","","","30"},
-        {"Crocin 650 Advanced Tablet","","","","50"},
-        {"Streciles Medicated Lozens for Sore Throat","","","","40"},
-        {"Calbo D Capsule","","","","30"},
-        {"Feronia -XT Tablet","","","","130"},
+            {"Napa Paracetamol","","","","50"},
+            {"HealthVit Chromium Picolinate 200mcg Capsule","","","","305"},
+            {"Vitamin B Complex Capsules","","","","448"},
+            {"Inlife Vitamin E Wheat Germ Oil Capsule","","","","539"},
+            {"Dolo 650 Capsule","","","","30"},
+            {"Crocin 650 Advanced Tablet","","","","50"},
+            {"Streciles Medicated Lozens for Sore Throat","","","","40"},
+            {"Calbo D Capsule","","","","30"},
+            {"Feronia -XT Tablet","","","","130"},
     };
 
     private String[] package_details={
@@ -40,7 +47,6 @@ public class BuyMedicineActivity extends AppCompatActivity {
 
     HashMap<String,String> item;
     ArrayList list;
-    SimpleAdapter sa;
     ListView lst;
     Button btnBack,btnGoToCart;
 
@@ -79,8 +85,9 @@ public class BuyMedicineActivity extends AppCompatActivity {
             list.add(item);
         }
 
-        sa=new SimpleAdapter(this,list,R.layout.multi_lines, new String[]{"line1","line2","line3","line4","line5"},new int[] {R.id.line_a,R.id.line_b,R.id.line_c,R.id.line_d,R.id.line_e});
-        lst.setAdapter(sa);
+        //Adapter Design pattern
+        BuyMedicineAdapter adapter = new BuyMedicineAdapter(this, list);
+        lst.setAdapter(adapter);
 
 
         lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,7 +98,6 @@ public class BuyMedicineActivity extends AppCompatActivity {
                 it.putExtra("text2", package_details[i]);
                 it.putExtra("text3", packages[i][4]);
                 startActivity(it);
-                ;
             }
         });
     }

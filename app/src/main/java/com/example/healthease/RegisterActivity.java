@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * RegisterActivity handles user registration for the application.
+ */
 public class RegisterActivity extends AppCompatActivity {
     EditText edUsername,edEmail, edPassword, edConfirm;
     Button btn;
@@ -66,6 +69,12 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Checks if the provided password meets the specified criteria.
+     *
+     * @param passwordhere The password to check.
+     * @return True if the password is valid, otherwise false.
+     */
     public static boolean isValid(String passwordhere){
         int f1=0, f2=0, f3=0;
         if(passwordhere.length()<8){

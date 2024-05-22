@@ -11,6 +11,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthease.Database;
+import com.example.healthease.HomeActivity;
+import com.example.healthease.R;
+/**
+ * BuyMedicineBookActivity handles the booking process for medicines.
+ * Users can enter their personal details and book their medicine orders.
+ */
 public class BuyMedicineBookActivity extends AppCompatActivity {
 
     EditText edname, edaddress, edcontact, edpincode;

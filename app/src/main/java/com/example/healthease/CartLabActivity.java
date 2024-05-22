@@ -40,8 +40,8 @@ public class CartLabActivity extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     ListView lst;
-     AppCompatButton datebutton, timebutton, btncheckout,btnback;
-     private String[][] packages = {};
+    AppCompatButton datebutton, timebutton, btncheckout,btnback;
+    private String[][] packages = {};
     /**
      * Called when the activity is first created.
      *
@@ -66,7 +66,7 @@ public class CartLabActivity extends AppCompatActivity {
 
         float totalAmount=0;
         ArrayList dbData = db.getCartData(username, "lab");
-   //     Toast.makeText(getApplicationContext(),""+dbData, Toast.LENGTH_LONG).show();
+        //     Toast.makeText(getApplicationContext(),""+dbData, Toast.LENGTH_LONG).show();
 
         packages = new String[dbData.size()][];
         for(int i =0; i<packages.length; i++)
@@ -116,11 +116,11 @@ public class CartLabActivity extends AppCompatActivity {
         btncheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent it = new Intent(CartLabActivity.this, LabTestBookActivity.class);
-               it.putExtra("price", totalamount);
-               it.putExtra("date", datebutton.getText());
-               it.putExtra("time", timebutton.getText());
-               startActivity(it);
+                Intent it = new Intent(CartLabActivity.this, LabTestBookActivity.class);
+                it.putExtra("price", totalamount);
+                it.putExtra("date", datebutton.getText());
+                it.putExtra("time", timebutton.getText());
+                startActivity(it);
 
             }
         });
