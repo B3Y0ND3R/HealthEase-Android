@@ -8,7 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.healthease.Doctor.DoctorCardViewAdapter;
-
+/**
+ * The {@code FindDoctorActivity} class displays options to find doctors based on their specialization.
+ * It provides clickable CardViews for different types of doctors and handles their click events.
+ * Author: Md. Sakibur Rahman
+ */
 public class FindDoctorActivity extends AppCompatActivity {
 
     @Override
@@ -27,7 +31,7 @@ public class FindDoctorActivity extends AppCompatActivity {
 
         DoctorCardViewAdapter doctorCardViewAdapter = new DoctorCardViewAdapter(this);
 
-        doctorCardViewAdapter.setOnClickListenerAdapter(findViewById(R.id.cardFDFamilyPhysician), "Family Physicians");
+        doctorCardViewAdapter.setOnClickListenerAdapter(findViewById(R.id.cardFDFamilyPhysician), "Family Physician");
         doctorCardViewAdapter.setOnClickListenerAdapter(findViewById(R.id.cardFDDietician), "Dietician");
         doctorCardViewAdapter.setOnClickListenerAdapter(findViewById(R.id.cardFDDentist), "Dentist");
         doctorCardViewAdapter.setOnClickListenerAdapter(findViewById(R.id.cardFDSurgeon), "Surgeon");

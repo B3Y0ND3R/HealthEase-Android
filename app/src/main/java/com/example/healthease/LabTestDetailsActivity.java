@@ -11,9 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.healthease.Database;
-
+/**
+ * The {@code LabTestDetailsActivity} class displays the details of a selected lab test package.
+ * Users can view the package name, total cost, and details, and add the package to their cart.
+ * Author: Md. Sakibur Rahman
+ */
 public class LabTestDetailsActivity extends AppCompatActivity {
 
     TextView tvPackageName, tvTotalCost;
@@ -35,7 +37,7 @@ public class LabTestDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         tvPackageName.setText("Package Name: " + intent.getStringExtra("text1"));
-        tvTotalCost.setText("Total Cost: " + intent.getStringExtra("text3") + "/");
+        tvTotalCost.setText("Total Cost: " + intent.getStringExtra("text3") + "/- taka");
         edDetails.setText("Package Details: "+intent.getStringExtra("text2"));
 
 

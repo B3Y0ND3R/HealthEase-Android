@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:id="@+id/finddoctorlayout"
     tools:context=".FindDoctorActivity">
 
     <TextView
@@ -257,7 +258,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Appointment"
+                    android:text="Back"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textSize="16sp"
