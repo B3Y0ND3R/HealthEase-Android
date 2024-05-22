@@ -13,19 +13,46 @@
         android:theme="@style/Theme.HealthEase"
         tools:targetApi="31">
         <activity
-            android:name=".BuyMedicineBookActivity"
-            android:exported="false" />
-        <activity
             android:name=".CartBuyMedicineActivity"
             android:exported="false" />
         <activity
             android:name=".BuyMedicineDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".BuyMedicineBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".BuyMedicineActivity"
             android:exported="false" />
         <activity
             android:name=".OrderDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyMed.BuyMedicineBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyMed.CartBuyMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyMed.BuyMedicineDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyMed.BuyMedicineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Order.OrderDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".LabTestBookActivity"
@@ -52,19 +79,8 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".LoginActivity" -->
-        <!-- android:exported="false" /> -->
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Register.RegisterActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

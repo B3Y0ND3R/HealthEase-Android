@@ -12,6 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthease.Database;
+import com.example.healthease.R;
+
+/**
+ * BuyMedicineDetailsActivity displays the details of a selected medicine package.
+ * Users can view the details and add the package to their cart.
+ */
 public class BuyMedicineDetailsActivity extends AppCompatActivity {
 
     TextView tvPackageName, tvTotalCost;
@@ -38,7 +45,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BuyMedicineDetailsActivity.this,BuyMedicineActivity.class));
+                startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineActivity.class));
             }
         });
 

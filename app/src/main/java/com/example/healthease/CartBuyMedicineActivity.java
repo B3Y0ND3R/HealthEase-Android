@@ -13,19 +13,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.example.healthease.BuyMed.BuyMedicineAdapter;
+import com.example.healthease.Database;
+import com.example.healthease.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
+/**
+ * CartBuyMedicineActivity handles the display of medicines added to the cart,
+ * allows the user to select a delivery date, and proceed to checkout.
+ */
 public class CartBuyMedicineActivity extends AppCompatActivity {
 
 
-    HashMap<String ,String> item;
-    ArrayList list;
-    SimpleAdapter sa;
+    ArrayList<HashMap<String, String>> list;
+    BuyMedicineAdapter sa;
     TextView tvTotal;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
@@ -73,7 +79,7 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
 
         list = new ArrayList();
         for(int i=0;i<packages.length;i++){
-            item = new HashMap<String, String>();
+            HashMap<String, String> item = new HashMap<>();
             item.put("line1", packages[i][0]);
             item.put("line2", packages[i][1]);
             item.put("line3", packages[i][2]);
@@ -82,10 +88,8 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
             list.add(item);
         }
 
-        sa = new SimpleAdapter( this, list,
-                R.layout.multi_lines,
-                new String[] { "line1", "line2", "line3", "line4", "line5" },
-                new int[] { R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
+        //Adapter Design pattern
+        sa = new BuyMedicineAdapter( this, list);
         lst.setAdapter(sa);
 
 
@@ -121,6 +125,10 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
 
 
     }
+    /**
+     * Initializes the date picker dialog to allow the user to select a delivery date.
+     * Sets the minimum date to one day after the current date.
+     */
     private void initDatePicker() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);

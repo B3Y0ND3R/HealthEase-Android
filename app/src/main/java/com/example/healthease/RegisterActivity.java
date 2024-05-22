@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * RegisterActivity handles user registration for the application.
+ */
 public class RegisterActivity extends AppCompatActivity {
     EditText edUsername,edEmail, edPassword, edConfirm;
     Button btn;
@@ -20,13 +23,14 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         edUsername=findViewById(R.id.editTextRegUsername);
         edPassword=findViewById(R.id.editTextRegPassword);
         edEmail=findViewById(R.id.editTextRegEmail);
         edConfirm=findViewById(R.id.editTextRegConfirmPassword);
         btn=findViewById(R.id.buttonRegister);
         tv=findViewById(R.id.textViewExistingUser);
+
+        //kaj korsi
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "8 characters", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Use 1 alphabet, 1 special character and at least 8 character. ", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -65,6 +69,12 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Checks if the provided password meets the specified criteria.
+     *
+     * @param passwordhere The password to check.
+     * @return True if the password is valid, otherwise false.
+     */
     public static boolean isValid(String passwordhere){
         int f1=0, f2=0, f3=0;
         if(passwordhere.length()<8){

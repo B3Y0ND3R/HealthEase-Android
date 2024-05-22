@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthease.Database;
+
 public class LabTestDetailsActivity extends AppCompatActivity {
 
     TextView tvPackageName, tvTotalCost;

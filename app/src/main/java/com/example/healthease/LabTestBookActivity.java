@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthease.Database;
+
 public class LabTestBookActivity extends AppCompatActivity {
 
     EditText edname, edaddress, edcontact, edpincode;

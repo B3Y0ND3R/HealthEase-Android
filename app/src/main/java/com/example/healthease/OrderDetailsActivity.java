@@ -14,6 +14,9 @@ import com.example.healthease.Order.OrderAdapter;
 
 import java.util.ArrayList;
 
+/**
+ * OrderDetailsActivity displays the order details for the logged-in user.
+ */
 public class OrderDetailsActivity extends AppCompatActivity {
 
     private ListView lst;
