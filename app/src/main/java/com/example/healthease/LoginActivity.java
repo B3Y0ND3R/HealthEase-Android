@@ -12,10 +12,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * LoginActivity handles the user login process.
+ * It checks user credentials and navigates to the HomeActivity on successful login.
+ */
 public class LoginActivity extends AppCompatActivity {
-EditText edUsername, edPassword;
-Button btn;
-TextView tv;
+    EditText edUsername, edPassword;
+    Button btn;
+    TextView tv;
 
 
     @Override
@@ -31,7 +35,7 @@ TextView tv;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-           //     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                //     startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
                 Database db = Database.getInstance(getApplicationContext(),null);

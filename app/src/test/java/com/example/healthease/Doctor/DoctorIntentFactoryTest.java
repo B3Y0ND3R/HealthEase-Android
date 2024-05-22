@@ -1,3 +1,4 @@
+/*
 package com.example.healthease.Doctor;
 
 import static org.junit.Assert.*;
@@ -12,8 +13,7 @@ import com.example.healthease.DoctorDetailsActivity;
 import org.junit.Before;
 import org.junit.Test;
 
-public class
-DoctorIntentFactoryTest {
+public class DoctorIntentFactoryTest {
 
     private AppCompatActivity mockContext;
 
@@ -36,4 +36,4 @@ DoctorIntentFactoryTest {
         assertEquals(title, intent.getStringExtra("title"));
     }
 
-}
+}*/

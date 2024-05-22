@@ -198,13 +198,13 @@ public class Database extends SQLiteOpenHelper {
         str[0] = username ;
         str[1] = fullname;
         str[2] = date;
-      //  str[2] = address;
-      //  str[3] = contact;
-      //  str[4] = date;
-      //  str[5] = time;
+        //  str[2] = address;
+        //  str[3] = contact;
+        //  str[4] = date;
+        //  str[5] = time;
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("select * from orderplace where username = ? and fullname = ? and date = ?", str);
-      //  String qry3 = "create table orderplace(username text, fullname text, address text, contactno text, pincode int, date text, time text, amount float, otype text)";
+        //  String qry3 = "create table orderplace(username text, fullname text, address text, contactno text, pincode int, date text, time text, amount float, otype text)";
 
         if(c.moveToFirst())
         {
@@ -266,7 +266,7 @@ public class Database extends SQLiteOpenHelper {
 
         }
         if(c.moveToFirst()){
-          result = c.getInt(1);
+            result = c.getInt(1);
         }
         else
         {
